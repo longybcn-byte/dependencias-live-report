@@ -47,3 +47,8 @@ NODE_ENV=production
 ## Corrección del error `npm ci`
 
 El proyecto no incluía `package-lock.json`, pero el Dockerfile intentaba ejecutar `npm ci`, que exige ese archivo. El Dockerfile corregido usa `npm install --omit=dev --no-audit --no-fund`, así que Render puede construirlo sin lockfile.
+
+
+## Si la pantalla de contraseña no responde
+
+La versión anterior tenía el JavaScript dentro de `index.html`, pero la política CSP de Helmet bloqueaba scripts inline. Esta versión mueve el código a `public/app.js`, que sí está permitido por CSP.
