@@ -42,3 +42,8 @@ NODE_ENV=production
 - Render Blueprints: https://render.com/docs/blueprint-spec
 - Railway Dockerfiles: https://docs.railway.com/builds/dockerfiles
 - Railway config as code: https://docs.railway.com/config-as-code/reference
+
+
+## Corrección del error `npm ci`
+
+El proyecto no incluía `package-lock.json`, pero el Dockerfile intentaba ejecutar `npm ci`, que exige ese archivo. El Dockerfile corregido usa `npm install --omit=dev --no-audit --no-fund`, así que Render puede construirlo sin lockfile.
