@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: dependencias-live-report
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLICKUP_LIST_ID
+        value: "901222512417"
+      - key: CLICKUP_API_TOKEN
+        sync: false
+      - key: REPORT_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
