@@ -52,3 +52,7 @@ El proyecto no incluía `package-lock.json`, pero el Dockerfile intentaba ejecut
 ## Si la pantalla de contraseña no responde
 
 La versión anterior tenía el JavaScript dentro de `index.html`, pero la política CSP de Helmet bloqueaba scripts inline. Esta versión mueve el código a `public/app.js`, que sí está permitido por CSP.
+
+## Árbol completo de dependencias
+
+La versión actual ya no limita el mapa a las tres primeras relaciones ni a la primera tarea bloqueada. Construye niveles desde todas las relaciones que devuelve ClickUp, dibuja todas las tareas y flechas disponibles y mantiene cada nodo enlazado a su tarea.
